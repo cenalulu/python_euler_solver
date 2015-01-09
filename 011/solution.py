@@ -40,7 +40,7 @@ for row_id, row in enumerate(grid_array):
                 max_product = tmp_product
 
         if row_id + 3 < len(grid_array):
-            #try column
+            # try column
             tmp_product = v * grid_array[row_id + 1][col_id] \
                           * grid_array[row_id + 2][col_id] \
                           * grid_array[row_id + 3][col_id]

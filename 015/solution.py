@@ -32,8 +32,8 @@ def cal_combinations_to_point(point=None):
     else:
         if point[0] > 0 and point[1] > 0:
             global_path_cache.update({point[0]: {
-            point[1]: cal_combinations_to_point([point[0] - 1, point[1]]) + cal_combinations_to_point(
-                [point[0], point[1] - 1])}})
+                point[1]: cal_combinations_to_point([point[0] - 1, point[1]]) + cal_combinations_to_point(
+                    [point[0], point[1] - 1])}})
             return global_path_cache[point[0]][point[1]]
         elif point[0] == 0 and point[1] > 0:
             global_path_cache.update({point[0]: {point[1]: cal_combinations_to_point([point[0], point[1] - 1])}})

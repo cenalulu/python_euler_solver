@@ -17,8 +17,6 @@ def main():
     total_score = 0
     for name in sorted(name_dict):
         total_score += rank * name_dict[name]
-        if name == 'COLIN':
-            print rank, name_dict[name]
         rank += 1
 
     print total_score
