@@ -1,3 +1,5 @@
+from profile_decorate import profile
+
 """
 A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
 
@@ -16,17 +18,25 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 
 """
 
-nine_number = ''
-cycle_divisor_list = []
-for nine_len in range(1, 1000):
-    nine_number += '9'
-    nine_digit = int(nine_number)
-    for i in range(1, 1000):
-        if nine_digit % i == 0:
-            for smaller_nine in range(1, nine_len):
-                smaller_digit = '9' * smaller_nine
-                if int(smaller_digit) % i == 0:
-                    break
-            else:
-                cycle_divisor_list.append(i)
-print cycle_divisor_list.pop()
+
+@profile
+def main(*args, **kwargs):
+    nine_number = ''
+    cycle_divisor_list = []
+    for nine_len in range(1, 1000):
+        nine_number += '9'
+        nine_digit = int(nine_number)
+        for i in range(1, 1000):
+            if nine_digit % i == 0:
+                for smaller_nine in range(1, nine_len):
+                    smaller_digit = '9' * smaller_nine
+                    if int(smaller_digit) % i == 0:
+                        break
+                else:
+                    cycle_divisor_list.append(i)
+
+    print cycle_divisor_list.pop()
+
+
+if __name__ == '__main__':
+    main()
