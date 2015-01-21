@@ -32,7 +32,7 @@ def main():
     for multiplicand_cnt in range(1, 8):
         for multiplier_cnt in range(1, 9 - multiplicand_cnt + 1):
             if not max(multiplicand_cnt, multiplier_cnt) - 1 < 9 - (
-                multiplicand_cnt + multiplier_cnt) < multiplier_cnt + multiplicand_cnt:
+                        multiplicand_cnt + multiplier_cnt) < multiplier_cnt + multiplicand_cnt:
                 continue
             for multiplicand_set in permutations(total_set, multiplicand_cnt):
                 multiplier_set = total_set - set(multiplicand_set)

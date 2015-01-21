@@ -37,3 +37,45 @@ if __name__ == '__main__':
             print i
             break
 
+
+def prime_list(start_from=None):
+    known_prime_list = list()
+    v_now = 0
+    if start_from:
+        v_now = 3
+        while True:
+            for i in known_prime_list:
+                if v_now % i == 0:
+                    break
+                # before adding this tuning
+                # to find the biggest prime less than 300000
+                # 300007
+                #cost: real    0m33.046s
+                elif i * i > v_now + 1:
+                    known_prime_list.append(v_now)
+                    break
+            else:
+                known_prime_list.append(v_now)
+            v_now += 2
+            if v_now >= start_from:
+                break
+    else:
+        yield 2
+        v_now = 3
+
+    while True:
+        for i in known_prime_list:
+            if v_now % i == 0:
+                break
+            # before adding this tuning
+            # to find the biggest prime less than 300000
+            # 300007
+            #cost: real    0m33.046s
+            elif i * i > v_now + 1:
+                yield v_now
+                known_prime_list.append(v_now)
+                break
+        else:
+            known_prime_list.append(v_now)
+            yield v_now
+        v_now += 2
