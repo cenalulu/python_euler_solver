@@ -65,4 +65,3 @@ if __name__ == '__main__':
     result_set = main()
     print("sum of 5 prime is {}".format(sum(result_set)))
 
-    # 3 [7, 11, 17]
